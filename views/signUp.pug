@@ -4,12 +4,32 @@ block content
   section(class='signup')
     form(method='post', action='/sign-up')
       label(for='firstname') First Name 
-      input(type='text', name='firstname')
+      input(type='text', name='firstname', class=(errors.some(error => error.path === 'firstname') ? 'error' : ''))
+      if errors
+        each error in errors
+          if error.path === "firstname"
+            p(class='error-message') #{error.msg}
+
       label(for='lastname') Last Name 
-      input(type='text', name='lastname')
+      input(type='text', name='lastname', class=(errors.some(error => error.path === 'lastname') ? 'error' : ''))
+      if errors
+        each error in errors
+          if error.path === "lastname"
+             p(class='error-message') #{error.msg}
+
       label(for='email') Email 
-      input(type='text', name='email')
+      input(type='text', name='email', class=(errors.some(error => error.path === 'email') ? 'error' : ''))
+      if errors
+        each error in errors
+          if error.path === "email"
+             p(class='error-message') #{error.msg}
+
       label(for='password') Password 
-      input(type='password', name='password')
+      input(type='password', name='password', class=(errors.some(error => error.path === 'password') ? 'error' : ''))
+      if errors
+        each error in errors
+          if error.path === "password"
+             p(class='error-message') #{error.msg}
+
       button(type='submit') Submit 
 

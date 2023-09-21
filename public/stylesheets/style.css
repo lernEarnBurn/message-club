@@ -50,3 +50,13 @@ button {
 button:hover {
   background-color: #00b7ff96;
 }
+
+.error {
+  border: 1px solid red;
+}
+
+.error-message {
+  font-size: smaller;
+  margin-top: -1vh;
+  color: red;
+}
