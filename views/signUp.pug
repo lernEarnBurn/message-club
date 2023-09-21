@@ -3,33 +3,37 @@ extends layout
 block content 
   section(class='signup')
     form(method='post', action='/sign-up')
-      label(for='firstname') First Name 
-      input(type='text', name='firstname', class=(errors.some(error => error.path === 'firstname') ? 'error' : ''))
       if errors
+        input(placeholder='First Name', type='text', name='firstname', class=(errors.some(error => error.path === 'firstname') ? 'error' : ''))
         each error in errors
           if error.path === "firstname"
             p(class='error-message') #{error.msg}
+      else 
+        input(placeholder='First Name', type='text', name='firstname')
 
-      label(for='lastname') Last Name 
-      input(type='text', name='lastname', class=(errors.some(error => error.path === 'lastname') ? 'error' : ''))
       if errors
+        input(placeholder='Last Name', type='text', name='lastname', class=(errors.some(error => error.path === 'lastname') ? 'error' : ''))
         each error in errors
           if error.path === "lastname"
              p(class='error-message') #{error.msg}
+      else
+        input(placeholder='Last Name', type='text', name='lastname')
 
-      label(for='email') Email 
-      input(type='text', name='email', class=(errors.some(error => error.path === 'email') ? 'error' : ''))
       if errors
+        input(placeholder='Email', type='text', name='email', class=(errors.some(error => error.path === 'email') ? 'error' : ''))
         each error in errors
           if error.path === "email"
              p(class='error-message') #{error.msg}
+      else 
+        input(placeholder='Email', type='text', name='email')
 
-      label(for='password') Password 
-      input(type='password', name='password', class=(errors.some(error => error.path === 'password') ? 'error' : ''))
       if errors
+        input(placeholder='Password', type='password', name='password', class=(errors.some(error => error.path === 'password') ? 'error' : ''))
         each error in errors
           if error.path === "password"
              p(class='error-message') #{error.msg}
+      else 
+        input(placeholder='Password', type='password', name='password')
 
       button(type='submit') Submit 
 

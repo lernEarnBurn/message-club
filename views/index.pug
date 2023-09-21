@@ -5,9 +5,7 @@ block content
   else  
     section(class='login')
       form(method='post', action='/log-in')
-        label(for='email') Email
-        input(type='text', name='email')
-        label(for='password') Password
-        input(type='password', name='password')
+        input(placeholder='Email', type='text', name='email')
+        input(placeholder='Password', type='password', name='password')
         button(type='submit') Submit 
         a(href='/sign-up') Sign Up      

@@ -11,7 +11,6 @@ a {
 .nav-bar {
   background-color: #00B7FF;
   height: 15vh;
-  margin-bottom: 10vh;
   display: flex;
   gap: 1vw;
   align-items: center;
@@ -31,12 +30,11 @@ form {
   display: flex;
   flex-direction: column;
   width: 20vw;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 input {
   margin-bottom: 1.5vh;
+  border-radius: .4vh;
 }
 
 button {
@@ -51,12 +49,31 @@ button:hover {
   background-color: #00b7ff96;
 }
 
+input {
+  padding: 1vh 1vh;
+  font-size: small;
+}
+
 .error {
-  border: 1px solid red;
+  border: 2px solid red;
 }
 
 .error-message {
   font-size: smaller;
   margin-top: -1vh;
   color: red;
+}
+
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
 }
