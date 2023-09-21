@@ -9,4 +9,4 @@ const userSchema = new Schema({
     membership: {type: String, enum: ['none', 'regular', 'admin'], default: 'none'},
 })
 
-module.exports = mongoose.Model('User', userSchema)
+module.exports = mongoose.model('User', userSchema)
