@@ -64,14 +64,7 @@ input {
   color: red;
 }
 
-.signup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 85vh;
-}
-
-.login {
+section {
   display: flex;
   justify-content: center;
   align-items: center;

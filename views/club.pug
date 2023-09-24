@@ -1,0 +1,6 @@
+extends layout 
+block content 
+  section(class='club-entry')
+    form(method='post', action='/club-entry')
+      input(placeholder='Secret Passcode')
+      button(type='submit') Submit
