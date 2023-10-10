@@ -1,16 +1,25 @@
 var express = require('express');
 var router = express.Router();
 
-
 const userController = require('../controllers/userController')
-const User = require('../models/user')
 
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  const currentUser = res.locals.currentUser;
+  
+
+  if(currentUser === undefined){
+    res.redirect('/log-in')
+  }else{
+    res.render('index');
+  }
 });
+
+router.get('/log-in', function(req, res, next) {
+  res.render('login')
+})
 
 router.get('/sign-up', function(req, res, next) {
   res.render('signUp')
@@ -21,6 +30,8 @@ router.get('/club-entry', function(req, res, next){
 })
 
 router.post('/sign-up', userController.createUser)
+
+
 
 
 module.exports = router;

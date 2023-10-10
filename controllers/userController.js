@@ -49,6 +49,7 @@ exports.createUser = [
               
                   const result = await user.save()
                   res.redirect("/")
+                  
                 }  
               })
         }

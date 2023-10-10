@@ -1,0 +1,8 @@
+extends layout
+block content
+  section(class='login')
+    form(method='post', action='/log-in')
+      input(placeholder='Email', type='text', name='username')
+      input(placeholder='Password', type='password', name='password')
+      button(type='submit') Submit 
+      a(href='/sign-up') Sign Up      

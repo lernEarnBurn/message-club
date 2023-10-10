@@ -4,8 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const passport = require('passport')
+const local = require('./authStrategies/local.js')
+const session = require("express-session");
+
+const crypto = require('crypto')
 
 var indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth')
 
 var app = express()
 
@@ -19,42 +24,7 @@ async function main() {
   await mongoose.connect(mongoDB);
 }
 
-passport.use(
-  new LocalStrategy(async (email, password, done) => {
-    try {
-      const user = await User.findOne({ email: email });
-      const match = await bcrypt.compare(password, user.password);
-      if (!user) {
-        return done(null, false, { message: "Incorrect email" });
-      };
-      if (!match) {
-        return done(null, false, { message: "Incorrect password" });
-      };
-      return done(null, user);
-    } catch(err) {
-      return done(err);
-    };
-  })
-);
 
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser(async (id, done) => {
-  try {
-    const user = await User.findById(id);
-    done(null, user);
-  } catch(err) {
-    done(err);
-  };
-});
-
-
-app.use((req, res, next) => {
-  res.locals.currentUser = req.user;
-  next();
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -66,7 +36,28 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+const sessionSecret = crypto.randomBytes(64).toString('hex');
+
+app.use(session({ secret: sessionSecret, resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
+
+
+
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
+
+ 
+
 app.use('/', indexRouter);
+app.use('/', authRouter)
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
