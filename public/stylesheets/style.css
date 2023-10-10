@@ -70,3 +70,50 @@ section {
   align-items: center;
   height: 85vh;
 }
+
+.message-feed {
+  flex-direction: column;
+  gap: 1vw;
+}
+
+.message-form {
+  width: 40vw;
+}
+
+.display {
+  width: 40vw;
+  height: 60vh; 
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+
+}
+
+.send {
+  border-radius: 50%;
+  background-image: url(/images/send-horizontal.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 2.2vw;
+  width: 2.2vw;
+}
+
+.message-input {
+  width: 38vw;
+}
+
+.wrapper {
+  display: flex;
+  gap:.6vw;
+  width: 100%;
+}
+
+.message {
+  background-color: #00B7FF;
+  border-radius: 1vh;
+  padding: 1vh 1vw;
+  font-size:larger;
+  color: white;
+}

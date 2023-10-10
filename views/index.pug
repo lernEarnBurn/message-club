@@ -1,6 +1,18 @@
 extends layout
 block content
   section(class='message-feed')
-    p #{currentUser.fullName}
-  
+    div(class='display')
+      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
+      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
+      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
+      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
+      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
+      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
+      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
+      div(class='message') This is a Test Message To style With This is a Test Message To style With This
+    form(class='message-form', method='post', action='/post-message')
+      div(class='wrapper')
+        input(class='message-input', name="content", type='text') 
+        button(type='submit', class='send')
+
     
