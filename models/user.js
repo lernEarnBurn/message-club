@@ -9,4 +9,8 @@ const userSchema = new Schema({
     membership: {type: String, enum: ['none', 'regular', 'admin'], default: 'none'},
 })
 
+userSchema.virtual('fullName').get(function () {
+    return this.firstname + ' ' + this.lastname
+})
+
 module.exports = mongoose.model('User', userSchema)
