@@ -2,14 +2,8 @@ extends layout
 block content
   section(class='message-feed')
     div(class='display')
-      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
-      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
-      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
-      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
-      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
-      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
-      div(class='message') This is a Test Message To style With This is a Test Message To style With This is a Test Message To style With
-      div(class='message') This is a Test Message To style With This is a Test Message To style With This
+      each message in messages 
+        div(class='message') #{message.content}
     form(class='message-form', method='post', action='/post-message')
       div(class='wrapper')
         if errors 

@@ -7,16 +7,7 @@ const messageController = require('../controllers/messageController')
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  const currentUser = res.locals.currentUser;
-  
-
-  if(currentUser === undefined){
-    res.redirect('/log-in')
-  }else{
-    res.render('index');
-  }
-});
+router.get('/', messageController.displayMessages)
 
 router.get('/log-in', function(req, res, next) {
   res.render('login')

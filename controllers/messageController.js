@@ -4,11 +4,22 @@ const { body, validationResult } = require("express-validator")
 const asyncHandler = require("express-async-handler")
 
 
+exports.displayMessages = asyncHandler(async(req, res, next) => {
+  const currentUser = res.locals.currentUser;
+
+  if(currentUser === undefined){
+    res.redirect('/log-in')
+  }else{
+    const messages = await Message.find({}).exec()
+    res.render('index', {messages: messages});
+  }
+})
+
 exports.postMessage = [
   body('content')
   .trim()
   .isLength({ min: 1 })
-  .escape()
+  .unescape()
   .withMessage("Content must be specified."),
 
   asyncHandler(async(req, res, next) => {
