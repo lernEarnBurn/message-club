@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const sessionSecret = crypto.randomBytes(64).toString('hex');
 
-app.use(session({ secret: sessionSecret, resave: false, saveUninitialized: true }));
+app.use(session({ secret: sessionSecret, resave: false, saveUninitialized: true, cookie: { maxAge: 24 * 60 * 60 * 1000 }}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
