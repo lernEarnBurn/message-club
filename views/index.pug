@@ -12,7 +12,13 @@ block content
       div(class='message') This is a Test Message To style With This is a Test Message To style With This
     form(class='message-form', method='post', action='/post-message')
       div(class='wrapper')
-        input(class='message-input', name="content", type='text') 
+        if errors 
+          div(class='wrapper-error-message')
+            input(class=(errors.some(error => error.path === 'lastname') ? 'error' : 'message-input'), name="content", type='text') 
+            each error in errors
+              p(class='error-message') #{error.msg}
+        else 
+          input(class='message-input', name="content", type='text') 
         button(type='submit', class='send')
 
     

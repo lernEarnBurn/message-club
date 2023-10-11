@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const userController = require('../controllers/userController')
+const messageController = require('../controllers/messageController')
 
 
 
@@ -30,6 +31,8 @@ router.get('/club-entry', function(req, res, next){
 })
 
 router.post('/sign-up', userController.createUser)
+
+router.post('/post-message', messageController.postMessage)
 
 
 

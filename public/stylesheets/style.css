@@ -64,6 +64,11 @@ input {
   color: red;
 }
 
+.wrapper-error-message {
+  display: flex;
+  flex-direction: column;
+}
+
 section {
   display: flex;
   justify-content: center;
