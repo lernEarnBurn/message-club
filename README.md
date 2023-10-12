@@ -1,5 +1,27 @@
-# message-club
+# Message-Club (nodejs)
+## Link
+ N/A (Here to show backend capabilities)
 
-a simple node app that leverages user authentication to make a message board thats anonymous unless you know the clubs password.
+## Technologies 
+Mongodb with Mongoose as database and Pug as template engine.
 
-This is simply a personal project to demonstrate web app backend practices such as form validation and sanitation as well as user authentication.
+## Accomplishments
++ code orgamization
++ clean implementation of user auth (passport js)
++ session management
+
+
+## Functionality
+### Did
++ user authentication
+### Didn't
++ responsive for tablets and and smartphones
++ spend time styling
+
+A simple User Auth interface that leads to a message board where users type messages. 
+
+
+There is also another page that if you enter admin you get admin priveleges and can delete messages.
+
+
+
