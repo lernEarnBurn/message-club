@@ -17,6 +17,7 @@ Mongodb with Mongoose as database and Pug as template engine.
 ### Didn't
 + responsive for tablets and and smartphones
 + spend time styling
+  
 
 A simple User Auth interface that leads to a message board where users type messages. 
 
