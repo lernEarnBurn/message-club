@@ -56,3 +56,20 @@ exports.createUser = [
         
     })
 ]
+
+
+
+exports.checkPassword = asyncHandler(async(req, res, next) => {
+    const currentUser = res.locals.currentUser
+
+    if(req.body.password === 'member' && currentUser){
+        const user = await User.findByIdAndUpdate(currentUser.id, { membership: 'member' }, { new: true });
+        res.redirect('/') 
+    }else if(req.body.password === 'admin' && currentUser){
+        const user = await User.findByIdAndUpdate(currentUser.id, { membership: 'admin' }, { new: true });
+        res.redirect('/')
+    }else{
+        res.render('club', {incorrect: 'Password is incorrect'})
+    }
+
+})

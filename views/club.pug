@@ -2,5 +2,9 @@ extends layout
 block content 
   section(class='club-entry')
     form(method='post', action='/club-entry')
-      input(placeholder='Secret Passcode')
+      if incorrect 
+        input(placeholder='Secret Passcode', name='password')
+        p(class='error-message') #{incorrect}
+      else 
+        input(placeholder='Secret Passcode', name='password')
       button(type='submit') Submit

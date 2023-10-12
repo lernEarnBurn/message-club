@@ -25,6 +25,8 @@ router.post('/sign-up', userController.createUser)
 
 router.post('/post-message', messageController.postMessage)
 
+router.post('/club-entry', userController.checkPassword)
+
 
 
 
