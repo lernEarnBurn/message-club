@@ -1,37 +1,29 @@
 var express = require('express');
 var router = express.Router();
 
-const userController = require('../controllers/userController')
-const messageController = require('../controllers/messageController')
+const userController = require('../controllers/userController');
+const messageController = require('../controllers/messageController');
 
+router.get('/', messageController.displayMessages);
 
+router.get('/log-in', function (req, res, next) {
+  res.render('login');
+});
 
-/* GET home page. */
-router.get('/', messageController.displayMessages)
+router.get('/sign-up', function (req, res, next) {
+  res.render('signUp');
+});
 
-router.get('/log-in', function(req, res, next) {
-  res.render('login')
-})
+router.get('/club-entry', function (req, res, next) {
+  res.render('club');
+});
 
-router.get('/sign-up', function(req, res, next) {
-  res.render('signUp')
-})
+router.post('/sign-up', userController.createUser);
 
-router.get('/club-entry', function(req, res, next){
-  res.render('club')
-})
+router.post('/post-message', messageController.postMessage);
 
-router.post('/sign-up', userController.createUser)
+router.post('/club-entry', userController.checkPassword);
 
-router.post('/post-message', messageController.postMessage)
-
-router.post('/club-entry', userController.checkPassword)
-
-router.get('/delete-message/:messageId', messageController.deleteMessage)
-  
-
-
-
-
+router.get('/delete-message/:messageId', messageController.deleteMessage);
 
 module.exports = router;
