@@ -27,6 +27,10 @@ router.post('/post-message', messageController.postMessage)
 
 router.post('/club-entry', userController.checkPassword)
 
+router.get('/delete-message/:messageId', messageController.deleteMessage)
+  
+
+
 
 
 

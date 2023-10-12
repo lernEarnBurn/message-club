@@ -10,7 +10,7 @@ exports.displayMessages = asyncHandler(async(req, res, next) => {
   if(currentUser === undefined){
     res.redirect('/log-in')
   }else{
-    const messages = await Message.find({}).exec()
+    const messages = await Message.find({}).populate('author').exec()
     res.render('index', {messages: messages});
   }
 })
@@ -42,3 +42,11 @@ exports.postMessage = [
     }
   })
 ]
+
+exports.deleteMessage = asyncHandler(async(req, res, next) => {
+  const messageId = req.params.messageId;
+
+  await Message.findByIdAndRemove(messageId)
+  res.redirect('/')
+
+})

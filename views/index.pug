@@ -2,8 +2,18 @@ extends layout
 block content
   section(class='message-feed')
     div(class='display')
-      each message in messages 
-        div(class='message') #{message.content}
+      if currentUser.membership === 'admin'
+        each message in messages 
+          div(class='author-name') #{message.author.fullName}
+          div(class='message') #{message.content}
+            a(class='delete', href=`/delete-message/${message._id}`) X
+      else if currentUser.membership === 'member'
+        each message in messages 
+          div(class='author-name') #{message.author.fullName}
+          div(class='message') #{message.content}
+      else
+        each message in messages 
+          div(class='message') #{message.content}
     form(class='message-form', method='post', action='/post-message')
       div(class='wrapper')
         if errors 

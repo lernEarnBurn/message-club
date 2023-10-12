@@ -122,3 +122,13 @@ section {
   font-size:larger;
   color: white;
 }
+
+.author-name {
+  font-size: small;
+  margin-bottom: -2.2vh;
+  margin-left: .2vw;
+}
+
+.delete {
+  color: red;
+}
